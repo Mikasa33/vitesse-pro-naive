@@ -13,6 +13,7 @@
   "dependencies": {
     "@vueuse/core": "^9.5.0",
     "@vueuse/head": "^1.0.18",
+    "naive-ui": "^2.34.2",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.26",
     "vue": "^3.2.45",
