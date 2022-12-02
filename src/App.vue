@@ -8,14 +8,14 @@ useHead({
     { name: 'description', content: 'Opinionated Vite Starter Template' },
     {
       name: 'theme-color',
-      content: computed(() => isDark.value ? '#00aba9' : '#ffffff'),
+      content: computed(() => unref(isDark) ? '#00aba9' : '#ffffff'),
     },
   ],
   link: [
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: computed(() => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg'),
+      href: computed(() => unref(preferredDark) ? '/favicon-dark.svg' : '/favicon.svg'),
     },
   ],
 })
@@ -28,9 +28,17 @@ const themeOverrides: GlobalThemeOverrides = {}
 <template>
   <NConfigProvider :date-locale="dateZhCN" :locale="zhCN" :theme="naiveTheme" :theme-overrides="themeOverrides">
     <NGlobalStyle />
-    <main font-sans p="x-4 y-10" text="center gray-700 dark:gray-200">
-      <RouterView />
-      <Footer />
-    </main>
+    <NLoadingBarProvider>
+      <NDialogProvider>
+        <NNotificationProvider>
+          <NMessageProvider>
+            <main font-sans p="x-4 y-10" text="center gray-700 dark:gray-200">
+              <RouterView />
+              <Footer />
+            </main>
+          </NMessageProvider>
+        </NNotificationProvider>
+      </NDialogProvider>
+    </NLoadingBarProvider>
   </NConfigProvider>
 </template>
