@@ -23,7 +23,6 @@ export default defineConfig({
 
     Vue({
       include: [/\.vue$/, /\.md$/],
-      reactivityTransform: true,
     }),
 
     // https://github.com/hannoeru/vite-plugin-pages
@@ -52,7 +51,7 @@ export default defineConfig({
       dts: 'types/auto-imports.d.ts',
       dirs: [
         'src/composables',
-        'src/store',
+        'src/stores',
       ],
       vueTemplate: true,
     }),
